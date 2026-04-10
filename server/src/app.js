@@ -7,7 +7,14 @@ const analyzeRoute = require("./routes/analyze");
 const app = express();
 const PORT = process.env.PORT || 5050;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ai-powered-resume-analyzer-beta.vercel.app/",
+    ],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
