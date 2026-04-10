@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 function App() {
   const [resumeText, setResumeText] = useState("");
@@ -36,7 +38,7 @@ function App() {
 
       formData.append("jobDescription", jobDescription);
 
-      const response = await fetch("http://127.0.0.1:5050/analyze", {
+      const response = await fetch(`${API_BASE_URL}/analyze`, {
         method: "POST",
         body: formData,
       });
